@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#071329">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>FinWork 99BD</title>
+    <title>FINWORK</title>
 
     <style>
         * {
@@ -18,7 +18,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -103,58 +104,70 @@
 <div id="app">
 
     <div id="loading">
+
         <div class="dots">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
-        <h2>FINWORK 99BD</h2>
+        <h2>FINWORK</h2>
+
         <p>Loading your platform...</p>
 
         <div id="error">
-            Website load করা যাচ্ছে না। অনুগ্রহ করে পেজটি Refresh করুন।
+            Website load করা যাচ্ছে না।
+            অনুগ্রহ করে পেজটি Refresh করুন।
         </div>
+
     </div>
 
     <iframe
         id="mainFrame"
-        title="FinWork 99BD">
+        title="FINWORK">
     </iframe>
 
 </div>
 
 <script>
-(function() {
+(function () {
     "use strict";
 
     const frame = document.getElementById("mainFrame");
     const loading = document.getElementById("loading");
     const error = document.getElementById("error");
 
-    // Load the main page without writing its path in the iframe HTML.
-    const pagePath = atob("L3N5c3RlbS1kYXRhL21haW4uaHRtbA==");
+    // Main HTML file location
+    const pagePath = atob(
+        "L3N5c3RlbS1kYXRhL21haW4uaHRtbA=="
+    );
 
-    let loaded = false;
-
-    frame.addEventListener("load", function() {
-        loaded = true;
+    // Hide loading screen when iframe loads
+    frame.addEventListener("load", function () {
         loading.style.display = "none";
     });
 
-    frame.addEventListener("error", function() {
+    // Show error if iframe reports a loading error
+    frame.addEventListener("error", function () {
         error.style.display = "block";
+
+        const dots = loading.querySelector(".dots");
+
+        if (dots) {
+            dots.style.display = "none";
+        }
     });
 
+    // Load main website
     frame.src = pagePath;
 
-    // Outer page right-click restriction only.
-    document.addEventListener("contextmenu", function(e) {
+    // Disable right-click menu
+    document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     });
 
-    // Outer page common keyboard shortcut restriction only.
-    document.addEventListener("keydown", function(e) {
+    // Disable selected browser shortcuts
+    document.addEventListener("keydown", function (e) {
         const key = e.key.toLowerCase();
 
         if (
