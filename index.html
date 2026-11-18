@@ -1,36 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
 
     <title>FinWork 99BD</title>
 
-    <!-- সিকিউরিটি ও প্রটেকশন স্ক্রিপ্ট (ডেবাগার ট্র্যাপ এবং শর্টকাট ব্লক) -->
-    <script>
-        // ১. কেউ ডেভেলপার টুলস (Inspect/F12) ওপেন করলেই ডিবাগার ট্র্যাপে আটকে যাবে
-        setInterval(function() {
-            debugger;
-        }, 100);
-
-        // ২. রাইট-ক্লিক (Right-click) ডিসেবল করার জন্য
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // ৩. কিবোর্ড শর্টকাট (F12, Ctrl+Shift+I, Ctrl+U ইত্যাদি) ব্লক করার জন্য
-        document.addEventListener('keydown', function(e) {
-            if (
-                e.keyCode === 123 || // F12
-                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I / J
-                (e.ctrlKey && e.keyCode === 85) // Ctrl+U (View Source)
-            ) {
-                e.preventDefault();
-                return false;
-            }
-        });
-    </script>
+    <meta name="robots" content="noindex, nofollow">
 
     <style>
         * {
@@ -54,12 +31,31 @@
         }
     </style>
 </head>
+
 <body>
 
     <iframe
         src="/system-data/main.html"
         title="FinWork 99BD">
     </iframe>
+
+    <script>
+        // Right-click বন্ধ
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // কিছু Developer Tools shortcut বন্ধ
+        document.addEventListener("keydown", function(e) {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey &&
+                 ["I", "J", "C"].includes(e.key.toUpperCase()))
+            ) {
+                e.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>
